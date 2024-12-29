@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie</title>
+</head>
+<body>
+
+  <h2>Use localhost environment to test cookie, file:// protocol wont work with cookies</h2>
+  <script>
+    document.cookie = "name=John Doe; path=/; max-age=30; SameSite=Lax";
+
+    console.log(document.cookie)
+
+    function getCookie(name) {
+      const cookies = document.cookie.split("; ");
+      for (const cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) {
+          return value;
+        }
+      }
+      return null; // Return null if the cookie is not found
+  }
+
+  const name = getCookie("name");
+  console.log(name); // Outputs: "John Doe" if within 30 seconds
+  </script>
+</body>
+</html>
