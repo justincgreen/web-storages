@@ -8,6 +8,8 @@
 <body>
 
   <h2>Use localhost environment to test cookie, file:// protocol wont work with cookies</h2>
+  <h3></h3>
+  <button onclick="clearCookies()">Clear cookies</button>
   <script>
     document.cookie = "name=John Doe; path=/; max-age=30; SameSite=Lax";
 
@@ -26,6 +28,15 @@
 
   const name = getCookie("name");
   console.log(name); // Outputs: "John Doe" if within 30 seconds
+
+  if(name != null) {
+    document.querySelector("h3").textContent = `Cookie value is ${name}`;
+  }
+
+  function clearCookies() {
+    document.cookie = "name=; path=/; max-age=0; SameSite=Lax";
+    alert("Cookie 'name' cleared!");
+  }
   </script>
 </body>
 </html>
