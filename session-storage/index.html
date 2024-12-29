@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Storage</title>
+</head>
+<body>
+  <input type="text" id="name" placeholder="Enter your name" />
+  <button onclick="saveToSession()">Save to Session</button>
+  <button onclick="loadFromSession()">Load from Session</button>
+  <button onclick="clearSession()">Clear Session</button>
+
+  <h2 class="output"></h2>
+
+  <script>
+    function saveToSession() {
+      const name = document.getElementById("name").value;
+
+      if(name === "") {
+        alert("Please enter a name")
+      }else {
+        sessionStorage.setItem("username", name);
+        alert("Name saved to session storage");
+      }
+    }
+
+    function loadFromSession() {
+      const name = sessionStorage.getItem("username");
+      const output = document.querySelector(".output");
+
+      if(name) {
+        output.innerHTML = `Hello, ${name}!`
+      }else {
+        output.innerHTML = "No name found in session storage";
+      }
+    }
+
+    function clearSession() {
+      const output = document.querySelector(".output");      
+      sessionStorage.clear();
+      output.innerHTML = "Session storage cleared"
+    }
+  </script>
+</body>
+</html>

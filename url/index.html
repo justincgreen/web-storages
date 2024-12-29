@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Params</title>
+  <style>
+    /* Basic styles for grid and list layouts */
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .item {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .grid .item {
+        width: 100px;
+    }
+    .list .item {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+  <h1>Dynamic Layout Example</h1>
+  <button id="gridButton">Grid Layout</button>
+  <button id="listButton">List Layout</button>
+  <div id="container" class="container grid"></div>
+  <script src="script.js"></script>
+</body>
+</html>

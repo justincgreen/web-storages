@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage</title>
+</head>
+<body>
+  <h2>This name will be added to local storage: Bob</h2>
+  <h3></h3>
+  <button class="btn">Local Storage</button>
+  <button class="btn-output">Output Name</button>
+  <button class="btn-clear">Clear Local Storage</button>
+
+  <script>
+    document.querySelector(".btn").addEventListener("click", () => {
+      localStorage.setItem("name", "Bob");
+    })
+
+    document.querySelector(".btn-output").addEventListener("click", () => {
+      if(localStorage.getItem("name") != null) {
+        document.querySelector("h3").innerHTML = localStorage.getItem("name");
+      }else {
+        document.querySelector("h3").innerHTML = "name does not exist";
+      }
+    })
+
+    document.querySelector(".btn-clear").addEventListener("click", () => {
+      localStorage.clear();
+    });
+  </script>
+</body>
+</html>
